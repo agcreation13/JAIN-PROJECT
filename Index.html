@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Web Application Project</title>
+      <!----------bootstrap-css-------------->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+      <!----------bootstrap-javascript-------------->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" ></script>
+
+
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+      <!----------External-css-------------->
+      <link href="css/style.css" rel="stylesheet">
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-md z-1 py-0 navigation_menu">
+         <div class="container-fluid">
+            <a class="navbar-brand fw-bolder fs-1 pe-5 py-0" href="#">
+            <img src="img/logo.png" alt="Travel Tour" width="150" height="78">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fa fa-bars"></i>
+            </button>
+            <div class="navbar-collapse collapse justify-content-between" id="navbarSupportedContent">
+               <ul class="navbar-nav fw-bold m-0 p-2">
+                  <li class="nav-item p-2">
+                     <a class="nav-link text-dark"href="#">Home </a>
+                  </li>
+                  <li class="nav-item p-2">
+                     <a class="nav-link text-dark" href="#"> Book </a>
+                  </li>
+                  <li class="nav-item p-2 dropdown">
+                     <a class="nav-link text-dark dropdown-toggle" href="#" id="DropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Packages
+                     </a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">India</a>
+                        <a class="dropdown-item" href="#">France</a>
+                        <a class="dropdown-item" href="#">United State</a>
+                        <a class="dropdown-item" href="#">Germany</a>
+                     </div>
+                  </li>
+                  <li class="nav-item p-2">
+                     <a class="nav-link text-dark" href="#"> Services </a>
+                  </li>
+                  <li class="nav-item p-2">
+                     <a class="nav-link text-dark" href="#"> Gallery </a>
+                  </li>
+                  <li class="nav-item p-2 pr-2">
+                     <a class="nav-link text-dark" href="#"> About </a>
+                  </li>
+               </ul>
+               <form class="form-inline-gropu p-2 my-2 my-lg-0">
+                   <div class="input-group">
+
+      <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search">
+            <div class="input-group-text"><i class="fa fa-search"></i></div>
+    </div>
+               </form>
+               <div class="register-buttons p-3 my-2 my-lg-0">
+                  <button class="btn my-2 my-sm-0  btn_a  text-white me-3" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                  <button class="btn my-2 my-sm-0  btn_a text-white me-3" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <section class="shadow-for-text">
+         <div class="banner">
+            <div class="content">
+               <h2 class="title_1 shadow-lg z-2 text-with-shadow">Welcome To <span>TravelGo</span></h2>
+               <h3 class="title_2 text-with-shadow">Visit <span id="changetext_1">India</span></h3>
+               <button class="mt-5 book_btn btn btn-outline-success"><a href="#">Book Now</a></button>
+            </div>
+         </div>
+         </div>
+         </div>
+      </section>
+      <section>
+         <div class="container-fluid">
+    <!-- Image and Form Section -->
+<section class="bg-light">
+    <div class="row">
+      <!-- Image Section -->
+      <div class="col-md-6">
+        <div class="image-section">
+        <img src="https://www.wildstone.in/cdn/shop/articles/Things-You-Should-Keep-In-Mind-While-Traveling.jpg?v=1660050621" alt="Brand Image" class="img-fluid">
+      </div>
+
+      </div>
+      <!-- Form Section -->
+      <div class="col-md-6">
+        <div class="form-section">
+        <form id="bookingForm">
+          <div class="form-group">
+            <label for="tourist_places">Where to: <span class="text-danger">*</span></label>
+            <select class="form-control" id="tourist_places" name="tourist_places" required>
+              <option value="india">India</option>
+              <option value="unitedStates">United States</option>
+              <option value="germany">Germany</option>
+              <option value="france">France</option>
+              <option value="dubai">Dubai</option>
+              <option value="singapore">Singapore</option>
+              <option value="tokyo">Tokyo</option>
+              <option value="indonesia">Indonesia</option>
+              <option value="malaysia">Malaysia</option>
+              <option value="myanmar">Myanmar</option>
+              <!-- Add more places as needed -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="persons">How Many Person: <span id="alert_persons" class="text-danger">*</span></label>
+            <input type="number" class="form-control" id="persons" name="persons" required>
+          </div>
+          <div class="form-group">
+            <label for="startDate">Start Date: <span id="alert_startDate" class="text-danger">*</span></label>
+            <input type="date" class="form-control" id="startDate" name="startDate" min="<?php echo date('Y-m-d'); ?>" required>
+          </div>
+          <div class="form-group">
+            <label for="endDate">End Date: <span id="alert_endDate" class="text-danger">*</span></label>
+            <input type="date" class="form-control" id="endDate" name="endDate" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Description: <span id="alert_description" class="text-danger">*</span></label>
+            <textarea class="form-control" id="description" name="description" rows="3" minlength="50" maxlength="500" required></textarea>
+          </div>
+          <button type="button" class="btn btn-warning" onclick="bookNow()">Book Now</button>
+          <button type="reset" class="btn btn-danger">Clear</button>
+
+        </form>
+      </div>
+      </div>
+    </div>
+</section>
+    <!-- Package Section -->
+    <div class="row package-section text-center text-capitalize">
+      <!-- Repeat this block for each package -->
+      <div class="col-md-4">
+        <div class="card package-card">
+          <img src="./img/germany-img.jpg" class="card-img-top img-fluid card_img" alt="Package 1">
+          <div class="card-body">
+            <h4 class="card-title">Germany</h4>
+            <p class="card-text">Germany is great place to visit.</p>
+            <h4 class="price_text card-text"><span class="text-dark">Price: </span>
+               $300</h4>
+           <p class="card-text"></p>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-secondary"></i>
+           </p>
+            <button class="btn btn-warning">Book Now</button>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="card package-card">
+          <img src="./img/France-travel.jpg" class="card-img-top img-fluid card_img" alt="Package 1">
+          <div class="card-body">
+            <h4 class="card-title">France</h4>
+            <p class="card-text">France is great place to visit.</p>
+            <h4 class="price_text card-text"><span class="text-dark">Price: </span>
+               $400</h4>
+            <p class="card-text"></p>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-secondary"></i>
+              <i class="bi bi-star-fill text-secondary"></i>
+           </p>
+            <button class="btn btn-warning">Book Now</button>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="card package-card">
+          <img src="./img/us-img.jpg" class="card-img-top img-fluid card_img" alt="Package 1">
+          <div class="card-body">
+            <h4 class="card-title">United State</h4>
+            <p class="card-text">United State is great place to visit.</p>
+            <h4 class="price_text card-text"><span class="text-dark">Price: </span>
+               $500</h4>
+            <p class="card-text"></p>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+           </p>
+            <button class="btn btn-warning">Book Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card package-card">
+          <img src="./img/dubai-img.jpg" class="card-img-top img-fluid card_img" alt="Package 1">
+          <div class="card-body">
+            <h4 class="card-title">Dubai</h4>
+            <p class="card-text">Dubai is great place to visit.</p>
+            <h4 class="price_text card-text"><span class="text-dark">Price: </span>
+               $380</h4>
+           <p class="card-text"></p>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-secondary"></i>
+           </p>
+            <button class="btn btn-warning">Book Now</button>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="card package-card">
+          <img src="./img/tokyo-img.jpg" class="card-img-top img-fluid card_img" alt="Package 1">
+          <div class="card-body">
+            <h4 class="card-title">Tokyo</h4>
+            <p class="card-text">Tokyo is great place to visit.</p>
+            <h4 class="price_text card-text"><span class="text-dark">Price: </span>
+               $4100</h4>
+            <p class="card-text"></p>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-secondary"></i>
+              <i class="bi bi-star-fill text-secondary"></i>
+           </p>
+            <button class="btn btn-warning">Book Now</button>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="card package-card">
+          <img src="./img/singapore-img.jpg" class="card-img-top img-fluid card_img" alt="Package 1">
+          <div class="card-body">
+            <h4 class="card-title">Singapore</h4>
+            <p class="card-text">Singapore is great place to visit.</p>
+            <h4 class="price_text card-text"><span class="text-dark">Price: </span>
+               $550</h4>
+            <p class="card-text"></p>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+           </p>
+            <button class="btn btn-warning">Book Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card package-card">
+          <img src="./img/indonesia-img.jpg" class="card-img-top img-fluid card_img" alt="Package 1">
+          <div class="card-body">
+            <h4 class="card-title">Indonesia</h4>
+            <p class="card-text">Indonesia is great place to visit.</p>
+            <h4 class="price_text card-text"><span class="text-dark">Price: </span>
+               $320</h4>
+           <p class="card-text"></p>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-secondary"></i>
+              <i class="bi bi-star-fill text-secondary"></i>
+           </p>
+            <button class="btn btn-warning">Book Now</button>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="card package-card">
+          <img src="./img/malaysia-img.jpg" class="card-img-top img-fluid card_img" alt="Package 1">
+          <div class="card-body">
+            <h4 class="card-title">Malaysia</h4>
+            <p class="card-text">Malaysia is great place to visit.</p>
+            <h4 class="price_text card-text"><span class="text-dark">Price: </span>
+               $450</h4>
+            <p class="card-text"></p>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-secondary"></i>
+           </p>
+            <button class="btn btn-warning">Book Now</button>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-4">
+        <div class="card package-card">
+          <img src="./img/myanmar-img.jpg" class="card-img-top img-fluid card_img" alt="Package 1">
+          <div class="card-body">
+            <h4 class="card-title">Myanmar</h4>
+            <p class="card-text">Myanmar is great place to visit.</p>
+            <h4 class="price_text card-text"><span class="text-dark">Price: </span>
+               $250</h4>
+            <p class="card-text"></p>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-secondary"></i>
+           </p>
+            <button class="btn btn-warning">Book Now</button>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for other packages -->
+    </div>
+
+    <!-- Services Section -->
+    <section class="alert-info p-3">
+   <div class="row services-section m-0">
+      <!-- Service Cards (2 rows, 3 cards in each row) -->
+      <div class="col-md-12 text-center pb-2">
+        <h3>Our-Services</h3>
+      </div>
+
+      <div class="col-md-4 mb-2 text-center">
+        <div class="card service-card">
+          <div class="card-body">
+            <h5 class="card-title">Affordable Hotel</h5>
+            <p class="card-text">Comfort on a budget, our affordable hotel: where quality meets affordability for your perfect stay.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-2 text-center">
+        <div class="card service-card bg-white">
+          <div class="card-body">
+            <h5 class="card-title">Food & Drinks</h5>
+            <p class="card-text">Savor the moment with our exquisite food and drinks – a culinary journey that delights the senses.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-2 text-center">
+        <div class="card service-card">
+          <div class="card-body">
+            <h5 class="card-title">Safety Guide</h5>
+            <p class="card-text">Your safety is our priority: explore our comprehensive safety guide for a worry-free experience.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Row -->
+      <div class="col-md-4 mb-2 text-center">
+        <div class="card service-card">
+          <div class="card-body">
+            <h5 class="card-title">Transportation Services</h5>
+            <p class="card-text">Effortless travel awaits with our top-notch transportation services – your gateway to hassle-free commuting and exploration.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-2 text-center">
+        <div class="card service-card bg-white">
+          <div class="card-body">
+            <h5 class="card-title">Guided Tours</h5>
+            <p class="card-text">Discover the world with confidence through our immersive guided tours, unlocking hidden gems and creating lasting memories..</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-2 text-center">
+        <div class="card service-card">
+          <div class="card-body">
+            <h5 class="card-title">Customer Support</h5>
+            <p class="card-text">Our commitment goes beyond service; it's a promise to provide exceptional customer support, ensuring your satisfaction is our top priority</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+        <!-- end-Services Section -->
+        <section id="gallery">
+           <!-- Gallery -->
+<div class="row gallery">
+    <div class="col-md-12 text-center pb-5 pt-5">
+        <h3>Our-Gallery</h3>
+      </div>
+
+  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+    <img
+      src="img/myanmar-img.jpg"
+      class="w-100 shadow-1-strong rounded mb-4 gallery-img"
+      alt="Boat on Calm Water"
+    />
+
+          <img
+  src="img/singapore-img.jpg"
+      class="w-100 shadow-1-strong rounded mb-4 gallery-img"
+      alt="Yosemite National Park"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+  src="img/malaysia-img.jpg"
+      class="w-100 h-50  shadow-1-strong rounded mb-4 gallery-img"
+      alt="Mountains in the Clouds"
+    />
+
+    <img
+  src="img/dubai-img.jpg"
+      class="w-100 h-50 shadow-1-strong rounded mb-4 gallery-img"
+      alt="Boat on Calm Water"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+  src="img/indonesia-img.jpg"
+      class="w-100 shadow-1-strong rounded mb-4 gallery-img"
+      alt="Waves at Sea"
+    />
+
+    <img
+  src="img/tokyo-img.jpg"
+      class="w-100 shadow-1-strong rounded mb-4 gallery-img"
+      alt="Yosemite National Park"
+    />
+
+  </div>
+</div>
+<!-- Gallery -->
+        </section>
+
+
+<section class="bg-light mt-5 pt-2">
+    <div class="row">
+       <div class="col-md-12 text-center pb-1 pt-2">
+        <h3>Our-About Us</h3>
+      </div>
+         <div class="col-md-6 p-5">
+        <div class="pt-5">
+        <h1 class="p-2 font-weight-bold">Travel <span class="text-warning">Go</span></h1>
+        <h4 class="p-2">For best deal in tour packages and best taxi rates.<br><br> Booking call us now!!!</h4>
+        <p class="p-1">Travel Go strives to present the best of North India region to the World and its young team has now ventured to organize and operate various Tours in the beautiful northeren Himalayas. We are the best tour and travel agency in Srinagar.</p>
+            <ul class="list-group p-2 mx-3">
+              <li class="font-weight-bold p-1 ">Best Price and Value</li>
+              <li class="font-weight-bold p-1 ">Best Group Packages</li>
+              <li class="font-weight-bold p-1 ">24/7 Customer Support</li>
+            </ul>
+            <a class="btn btn-warning mx-2 mt-3" href="#">Read-More</a>
+            </div>
+
+       </div>
+      <!-- Image Section -->
+      <div class="col-md-6">
+        <div class="image-section">
+        <img src="https://www.wildstone.in/cdn/shop/articles/Things-You-Should-Keep-In-Mind-While-Traveling.jpg?v=1660050621" alt="Brand Image" class="img-fluid p-5">
+      </div>
+
+      </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+  <footer class="bg-dark text-light text-center py-3">
+    <div class="container">
+      <span class="brand-name text-uppercase">Travel Go</span>
+      <div class="social-icons mt-3">
+        <!-- Add your social media icons with inactive links -->
+        <a href="https://www.facebook.com" class="text-light mx-2"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.instagram.com" class="text-light mx-2"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.youtube.com" class="text-light mx-2"><i class="fa fa-youtube"></i></a>
+        <a href="https://in.pinterest.com/" class="text-light mx-2"><i class="fa fa-pinterest"></i></a>
+        <!-- Add more social media icons as needed -->
+      </div>
+      <p class="mt-3">&copy; 2023 Travel Go. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+        <!-- about-us -->
+ </div>
+  </div>
+      </section>
+
+<!-- Login-Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title fs-5" id="loginModalLabel">Login</h3>
+                <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <div class="modal-body">
+                <!-- Login Form -->
+                <form action="process_login.php" method="post" id="loginForm" onsubmit="return validateLoginForm()">
+                    <div class="form-group">
+                        <label for="email">Email ID</label>
+                        <input type="email" class="form-control" id="email" name="email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required />
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">Login</button> <br />
+                        Don't have an account? <button type="button" data-bs-toggle="modal" data-bs-target="#registerModal" class="btn btn-outline-secondary">Register</button>
+                        <!-- <a href="register.html">Register</a> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- register-Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title fs-5" id="registerModalLabel">Register</h3>
+                <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <div class="modal-body">
+                  <!-- Registration Form -->
+<form id="registrationForm" action="#" onsubmit="return validateFormReg()">
+
+    <div class="row">
+        <div class="form-group col-md-12">
+            <label for="fullname">Full Name</label>
+            <input type="text" class="form-control" id="fullname" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="contact">Contact</label>
+            <input type="text" class="form-control" id="contact" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" id="dob" required>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="email">Email ID</label>
+            <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" required>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Register</button> <br>
+            Already have an account? <button type="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="btn btn-outline-secondary">Login</button>
+        </div>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+   </body>
+</html>
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+   var text = ["India", "France","United State", "Germany"];
+   var counter = 0;
+   var elem = document.getElementById("changetext_1");
+   function changeText() {
+     elem.innerHTML = text[counter];
+    counter++;
+    if (counter >= text.length) {
+      counter = 0;
+    }
+   }
+   setTimeout(function () {
+    changeText();
+   }, 2000);
+   var interval = setInterval(changeText, 2000);
+   });
+</script>
+<script>function bookNow() {
+    var tourist_places = document.getElementById('tourist_places').value;
+    var persons = document.getElementById('persons').value;
+    var startDate = document.getElementById('startDate').value;
+    var endDate = document.getElementById('endDate').value;
+    var description = document.getElementById('description').value;
+    // Perform validation
+    if (tourist_places && persons && startDate && endDate && description) {
+        // All fields are filled, display alert
+        alert('Booking Successful!');
+    } else {
+        // if (persons === '') {
+        //     $('#alert_persons').html('Enter persons count.');
+        // } else if (startDate === '') {
+        //     $('#alert_startDate').html('Select a start date.');
+        // } else if (endDate === '') {
+        //     $('#alert_endDate').html('Select an end date.');
+        // } else if (tourist_places === '') {
+        //     $('#alert_tourist_places').html('Select a tourist place.');
+        // } else {
+        //     alert('Please fill in all the fields.');
+        // }
+         alert('Please fill in all the fields.');
+    }
+}
+
+</script>
+<script>
+    function validateFormReg() {
+        var fullname = document.querySelector('#fullname').value.trim();
+        var contact = document.querySelector('#contact').value.trim();
+        var dob = document.querySelector('#dob').value.trim();
+        var email = document.querySelector('#email').value.trim();
+        var password = document.querySelector('#password').value.trim();
+        var gender = document.querySelector('#gender').value;
+
+        if (fullname === '' || contact === '' || dob === '' || email === '' || password === '' || gender === '') {
+           alert('Registration Successful...\nForm submitted!');
+            return true;
+        } else {
+             alert('All fields are required. Please fill them out.');
+            return false;
+        }
+    }
+</script>
